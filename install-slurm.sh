@@ -27,8 +27,6 @@ scp /etc/munge/munge.key root@node:/etc/munge/munge.key
 chown munge:munge /etc/munge/munge.key
 chmod 400 /etc/munge/munge.key
 
-apt-get install -y slurmd
-
 /etc/init.d/slurmd start
 
 /etc/init.d/slurmctld start
