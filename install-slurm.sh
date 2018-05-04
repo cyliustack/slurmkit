@@ -1,5 +1,7 @@
 #!/bin/bash
-apt install -y libmunge-dev libmunge2 munge
+apt-get install -y libmunge-dev libmunge2 munge
+
+useradd munge
 
 rm /etc/munge/munge.key
 
@@ -9,7 +11,7 @@ chown munge:munge /etc/munge/munge.key
 
 chmod 400 /etc/munge/munge.key
 
-sed -i '/munge/c\munge:x:root:root::/var/run/munge;/sbin/nologin'  /etc/passwd
+sed -i '/munge/c\munge:x:5566:5566::/var/run/munge;/sbin/nologin'  /etc/passwd
 
 /etc/init.d/munge start
 
